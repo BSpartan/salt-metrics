@@ -1,3 +1,11 @@
+# christian@bloglovin
+# Examples of prometheus exposition format as converted from salt-json
+
+# HELP salt_master_is_running Number running salt masters.
+# TYPE salt_master_is_running gauge
+salt_master_is_running{role="master",id="mon1_master"} 1
+
+# HELP salt_event Number of salt events by role
 # TYPE salt_event gauge
 salt_event_runner_job{role="master",id="mon1_master"} 1
 salt_event_minion_job{role="master",id="mon1_master"} 7

@@ -34,4 +34,4 @@ class MetricsCollector(multiprocessing.Process):
         self._collector.start()
 
 
-collector = MetricsCollector
+collector = collectors.DecoratedMetricsCollector
