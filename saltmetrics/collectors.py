@@ -4,11 +4,12 @@
 
 # imports #######################################
 
-from decorators import decorate
+from decorators import Decorate
+from . import MetricsCollector
 
 # classes #######################################
 
-class DecoratedMetricsCollector(multiprocessing.Process):
+class DecoratedMetricsCollector( MetricsCollector ):
     """
     Metrics collector that allows runtime decorator declarations
     """
@@ -24,6 +25,6 @@ class DecoratedMetricsCollector(multiprocessing.Process):
         )
 
       # now apply decorator to BaseMetrics#save_metrics methods
-      self._collector.save_metrics = decorate( 
+      self._collector.save_metrics = Decorate( 
         self._collector.save_metrics, decorator, opts
       )
