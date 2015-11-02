@@ -1,0 +1,21 @@
+# TYPE salt_event gauge
+salt_event_runner_job{role="master",id="mon1_master"} 1
+salt_event_minion_job{role="master",id="mon1_master"} 7
+salt_event_runner_ret{role="master",id="mon1_master"} 1
+salt_event_other{role="master",id="mon1_master"} 1902
+salt_event_minion_ret{role="master",id="mon1_master"} 7
+salt_event_auth{role="master",id="mon1_master"} 77
+
+# HELP salt_func Number of salt events by role
+# TYPE salt_func gauge
+salt_func_runner.state.orchestrate{role="master",id="mon1_master"} 1
+salt_func_state.sls{role="master",id="mon1_master"} 5
+salt_func_saltutil.find_job{role="master",id="mon1_master"} 2
+
+# HELP salt_minions Number of salt events by role
+# TYPE salt_minions gauge
+salt_minions_accepted{role="master",id="mon1_master"} 73
+salt_minions_connected{role="master",id="mon1_master"} 73
+salt_minions_rejected{role="master",id="mon1_master"} 0
+salt_minions_pending{role="master",id="mon1_master"} 0
+salt_minions_denied{role="master",id="mon1_master"} 2

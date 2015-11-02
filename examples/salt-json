@@ -1,0 +1,37 @@
+{
+   "is_running" : 1,
+   "saved_time" : "20151102192258",
+   "minions" : {
+      "rejected" : 0,
+      "connected" : 95,
+      "accepted" : 95,
+      "pending" : 0,
+      "denied" : 2
+   },
+   "id" : "mon1_master",
+   "func" : {
+      "saltutil.refresh_pillar" : 232,
+      "saltutil.find_job" : 1695,
+      "test.arg" : 34,
+      "runner.fileserver.clear_lock" : 12,
+      "service.restart" : 2,
+      "cmd.run" : 224,
+      "test.ping" : 2,
+      "runner.jobs.list_job" : 397,
+      "runner.jobs.lookup_jid" : 397,
+      "state.sls" : 881,
+      "runner.state.orchestrate" : 233,
+      "saltutil.sync_states" : 13,
+      "test-ping" : 1,
+      "runner.fileserver.update" : 12
+   },
+   "role" : "master",
+   "event" : {
+      "runner_ret" : 1041,
+      "auth" : 4437,
+      "minion_job" : 3084,
+      "runner_job" : 1051,
+      "other" : 34579,
+      "minion_ret" : 11802
+   }
+}
