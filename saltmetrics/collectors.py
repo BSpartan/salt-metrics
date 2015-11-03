@@ -17,7 +17,7 @@ class DecoratedMetricsCollector( MetricsCollector ):
       super(DecoratedMetricsCollector, self).__init__( opts )
         
       # get decorator and/or raise exception if not found
-      decorator = opts.metrics.decorator
+      decorator = opts.get( 'metrics' ).get( 'decorator' )
       
       if not decorator:
         raise Exception(

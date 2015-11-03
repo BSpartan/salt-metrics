@@ -6,6 +6,7 @@
 
 import unittest
 import saltmetrics
+from saltmetrics import collector
 
 # tests #########################################
 
@@ -14,11 +15,23 @@ class MainTest( unittest.TestCase ):
   '''
   
   def setUp( self ):
-    pass
+    self.collector = collector({
+      '__role': 'master',
+      'transport': 'zeromq',
+      'sock_dir': '/tmp',
+      'metrics': {
+        'update_interval': 30,
+        'saved_path': '/tmp/salt_metrics.json',
+        'persistence': True,
+        'decorator': 'prometheus'
+      }
+    })
 
-  def test_main( self ):
-    pass
+
+  def test_collector( self ):
+    self.assertEqual(type(self.collector), saltmetrics.collectors.DecoratedMetricsCollector)
     
+  
   
 # main ##########################################
 
