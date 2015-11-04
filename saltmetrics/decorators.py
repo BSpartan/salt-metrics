@@ -42,7 +42,7 @@ class Decorate( object ):
       # pass through dict object and retrieve all values 
       # top level scalar values
       for key, value in data.iteritems():
-        if type in excludes and not isinstance( value, dict ):
+        if key in excludes and not isinstance( value, dict ):
           arguments.append('{key}="{value}"'.format(
             key   = key,
             value = value 
