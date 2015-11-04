@@ -32,6 +32,7 @@ class Decorate( object ):
     # retrieve dump file and convert json to native dict
     # instance
     saved_path = self.options['metrics']['saved_path']
+    excludes   = self.options['metrics'].get( 'excludes', [ ] )
 
     with open( saved_path, 'r' ) as file:
       data      = json.loads( file.read() ) 
@@ -41,7 +42,7 @@ class Decorate( object ):
       # pass through dict object and retrieve all values 
       # top level scalar values
       for key, value in data.iteritems():
-        if not isinstance( value, dict ):
+        if type in excludes and not isinstance( value, dict ):
           arguments.append('{key}="{value}"'.format(
             key   = key,
             value = value 
@@ -54,11 +55,11 @@ class Decorate( object ):
       # format
       # NOTE: see ./examples/prometheus-exposition
       for type, arbitrary in data.iteritems():
-        if isinstance( arbitrary, dict ):
+        if type not in excludes and isinstance( arbitrary, dict ):
           # create help, type exposition meta data
           dump.append(dedent('''
-            HELP salt_{type} Number salt {type} by role
-            TYPE salt_{type} gauge
+            # HELP salt_{type} Number salt {type} by role
+            # TYPE salt_{type} gauge
           ''').strip().format(
             type = type
           ))     
