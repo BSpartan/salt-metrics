@@ -33,5 +33,7 @@ class MetricsCollector(multiprocessing.Process):
         salt.utils.appendproctitle('MetricsCollector')
         self._collector.start()
 
+# main ##########################################
 
-collector = MetricsCollector
+from .collectors import DecoratedMetricsCollector
+collector = DecoratedMetricsCollector

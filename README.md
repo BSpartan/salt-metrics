@@ -27,6 +27,7 @@ metrics:
   update_interval: 30
   saved_path: /tmp/salt_metrics.json
   persistence: True
+  decorator: prometheus
 ```
 
 * Restart salt master
