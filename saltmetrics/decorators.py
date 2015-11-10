@@ -67,7 +67,7 @@ class Decorate( object ):
           for property, number in arbitrary.iteritems():
             dump.append('salt_{type}_{property}{arguments} {number}'.format(
               type      = type,
-              property  = property,
+              property  = property.replace( '.', '-' ),
               arguments = arguments,
               number    = number
             ))
