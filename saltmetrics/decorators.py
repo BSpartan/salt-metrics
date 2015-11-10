@@ -67,11 +67,15 @@ class Decorate( object ):
           for property, number in arbitrary.iteritems():
             dump.append('salt_{type}_{property}{arguments} {number}'.format(
               type      = type,
-              property  = property,
+              property  = property.replace( '.', '_' ),
               arguments = arguments,
               number    = number
             ))
 
+      # append newline to dumpfile or prometheus complains like
+      # a little boy
+      dump.append( "\n" )
+      
       # finally, lets write dump to file
       file = '{directory}/salt_metrics.{decorator}'.format(
         directory = dirname( saved_path ),
