@@ -72,6 +72,10 @@ class Decorate( object ):
               number    = number
             ))
 
+      # append newline to dumpfile or prometheus complains like
+      # a little boy
+      dump.append( "\n" )
+      
       # finally, lets write dump to file
       file = '{directory}/salt_metrics.{decorator}'.format(
         directory = dirname( saved_path ),
